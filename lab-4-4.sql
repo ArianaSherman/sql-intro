@@ -36,5 +36,11 @@
 -- | Toronto Blue Jays             | Randal     | Grichuk     | 31                   |
 -- | Washington Nationals          | Anthony    | Rendon      | 34                   |
 -- +-------------------------------+------------+-------------+----------------------+
-
+SELECT teams.name, players.first_name,players.last_name,MAX(stats.home_runs)
+FROM stats
+    LEFT JOIN players on players.id=stats.player_id
+    LEFT JOIN teams on teams.id=stats.team_id
+WHERE year=2019
+GROUP BY teams.name
+ORDER BY teams.name;
 

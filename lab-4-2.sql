@@ -24,4 +24,10 @@
 -- | Billy      | Hamilton  |
 -- | Ian        | Happ      |
 
-
+SELECT first_name,last_name
+FROM players
+    LEFT JOIN stats ON players.id=stats.player_id
+    LEFT JOIN teams ON stats.team_id=teams.id -- team ID is likely different year to year, meaning the join only connects to the team ID of a specific year 
+WHERE teams.name='Chicago Cubs'
+    AND teams.year=2020
+ORDER BY last_name;
