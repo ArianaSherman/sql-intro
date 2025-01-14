@@ -13,5 +13,13 @@
 -- | 2019 | 30       |
 -- | 2020 | 30       |
 -- +------+----------+
-
+SELECT
+    year,
+    COUNT(DISTINCT name) AS team_count
+FROM
+    teams
+GROUP BY
+    year
+ORDER BY
+    year
 
